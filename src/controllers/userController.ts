@@ -4,7 +4,9 @@ import knex from "../database/connection";
 
 export default class userController {
   async create(req: Request, res: Response) {
-    const { name, email, whatsapp } = req.body;
+    const {
+      name, email, whatsapp, password
+    } = req.body;
 
     const id = crypto.randomBytes(4).toString("hex");
 
@@ -12,16 +14,17 @@ export default class userController {
       id,
       name,
       email,
-      whatsapp
+      whatsapp,
+      password
     });
 
-    return res.status(201).json({ 
-      message: `Este é seu ID: ${id}` 
+    return res.status(201).json({
+      message: `Este é seu ID: ${id}`
     });
-  }
+  };
 
   async index(req: Request, res: Response) {
     const users = await knex("users").select("*");
     return res.json({ users });
-  }
-}
+  };
+};

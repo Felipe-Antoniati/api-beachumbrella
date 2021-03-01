@@ -27,6 +27,7 @@ export default class accessController {
       .limit(5)
       .offset((<any>page - 1) * 5)
       .select(
+        "id",
         "description", 
         "apartment_number", 
         "beach_umbrella"

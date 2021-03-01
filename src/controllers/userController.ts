@@ -8,7 +8,7 @@ export default class userController {
       name, email, whatsapp, password
     } = req.body;
 
-    const id = crypto.randomBytes(4).toString("hex");
+    const id = crypto.randomBytes(3).toString("hex");
 
     await knex("users").insert({
       id,
@@ -18,9 +18,7 @@ export default class userController {
       password
     });
 
-    return res.status(201).json({
-      message: `Este é seu ID: ${id}`
-    });
+    return res.status(201).json({id});
   };
 
   async index(req: Request, res: Response) {

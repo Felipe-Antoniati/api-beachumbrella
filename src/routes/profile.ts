@@ -8,14 +8,6 @@ const profileRouter = Router();
 
 profileRouter
   // List User Profile
-  .get(
-    "/profile",
-    celebrate({
-      [Segments.HEADERS]: Joi.object({
-        authorization: Joi.string().required(),
-      }).unknown(),
-    }),
-    ProfileController.index
-  );
+  .get("/profile", ProfileController.index);
 
 export default profileRouter;

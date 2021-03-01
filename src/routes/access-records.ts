@@ -21,7 +21,7 @@ accessRecordRouters
   )
   // Destroy Records
   .delete(
-    "/incidents/:id",
+    "/access-records/:id",
     celebrate({
       [Segments.PARAMS]: Joi.object().keys({
         id: Joi.number().required(),

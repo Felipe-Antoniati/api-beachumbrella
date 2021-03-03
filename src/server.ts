@@ -18,5 +18,7 @@ app
 
 const server = http.createServer(app);
 server.listen(PORT, () => {
-  console.log(`Server Started: http://localhost:${PORT}`);
+  console.log(
+    `Server Started: http://localhost:${PORT}`
+  );
 });

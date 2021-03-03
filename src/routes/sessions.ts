@@ -7,15 +7,10 @@ const SessionController = new sessionController();
 const sessionsRouter = Router();
 
 sessionsRouter
-  // Create a Session
-  .post(
-    "/sessions",
-    celebrate({
-      [Segments.BODY]: Joi.object().keys({
-        id: Joi.string().required(),
-      }),
+  .post("/sessions", celebrate({
+    [Segments.BODY]: Joi.object().keys({
+      id: Joi.string().required(),
     }),
-    SessionController.create
-  );
+  }), SessionController.create);
 
 export default sessionsRouter;

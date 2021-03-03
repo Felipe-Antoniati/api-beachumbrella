@@ -1,11 +1,10 @@
 import Knex from "knex";
 
 export async function up(knex: Knex) {
-  return knex.schema.createTable("access-records", table => {
+  return knex.schema.createTable("beach-umbrellas", 
+  table => {
     table.increments();
-    table.string("description").notNullable();
-    table.string("apartment_number").notNullable();
-    table.string("beach_umbrella").notNullable();
+    table.string("total").notNullable();
     table.string("user_id").notNullable();
 
     table
@@ -17,5 +16,5 @@ export async function up(knex: Knex) {
 };
 
 export async function down(knex: Knex) {
-  return knex.schema.dropTable("acess-records");
+  return knex.schema.dropTable("beach-umbrellas");
 };

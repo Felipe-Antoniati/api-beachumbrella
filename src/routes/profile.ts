@@ -7,7 +7,10 @@ const ProfileController = new profileController();
 const profileRouter = Router();
 
 profileRouter
-  // List User Profile
-  .get("/profile", ProfileController.index);
+  .get("/profile", celebrate({
+    [Segments.HEADERS]: Joi.object({
+      authorization: Joi.string().required(),
+    }).unknown(),
+  }), ProfileController.index);
 
 export default profileRouter;
